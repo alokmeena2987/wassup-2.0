@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #007AFF;
+    --secondary-color: #5AC8FA;
+    --accent-color: #FF2D55;
+    --text-color: #000000;
+    --bg-color: #F2F2F7;
+    --sidebar-color: #FFFFFF;
+    --message-bg: #E5E5EA;
+    --sent-message-bg: #007AFF;
+    --border-color: #C7C7CC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: var(--sidebar-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.brand h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+nav ul li:hover, nav ul li.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+nav ul li i {
+    margin-right: 15px;
+}
+
+.user-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Chat Area Styles */
+.chat-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.online-count {
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.message-area {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    border-radius: 18px;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.incoming {
+    background-color: var(--message-bg);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.outgoing {
+    background-color: var(--sent-message-bg);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message-content {
+    margin-bottom: 5px;
+}
+
+.message-info {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.typing-indicator {
+    padding: 10px 30px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.message-input input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 12px;
+    font-size: 16px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    margin: 0 15px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1);
+}
+
+.btn-send {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-send:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .chat-area {
+        height: calc(100vh - 200px);
+    }
+}

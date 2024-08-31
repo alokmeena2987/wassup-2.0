@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wassup 2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="wassup.png" alt="Wassup Logo" class="logo">
+                <h1>Wassup 2.0</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">Group Chat</li>
+                    <li>Online Users</li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img id="userAvatar" src="avatar-placeholder.jpg" alt="User Avatar" class="avatar">
+                <span id="username" class="username">Guest</span>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-header">
+                <h2>Awesome Group Chat</h2>
+                <div class="online-count">
+                    <span id="onlineCount">0</span> online
+                </div>
+            </header>
+            <div id="messageArea" class="message-area"></div>
+            <div id="typingIndicator" class="typing-indicator"></div>
+            <form id="message-form" class="message-input">
+                <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                <button type="submit" class="btn-send">Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script src="client.js" defer></script>
+</body>
+</html>
